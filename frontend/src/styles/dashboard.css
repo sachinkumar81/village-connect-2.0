@@ -1,0 +1,732 @@
+/* =========================================================
+   VillageConnect 2.0
+   Dashboard UI/UX + Responsive Design
+   Step 42
+   ========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+.dashboard-container {
+  width: min(1150px, 100%);
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 24px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #212529;
+  background: #f6f8fb;
+}
+
+.dashboard-container h1,
+.dashboard-container h2,
+.dashboard-container h3,
+.dashboard-container p {
+  overflow-wrap: anywhere;
+}
+
+.dashboard-container h1 {
+  margin: 0 0 8px;
+  font-size: 32px;
+  line-height: 1.2;
+}
+
+.dashboard-container h2 {
+  margin: 24px 0 14px;
+  font-size: 24px;
+  line-height: 1.3;
+}
+
+.dashboard-container h3 {
+  margin: 0 0 8px;
+  font-size: 18px;
+  line-height: 1.35;
+}
+
+.dashboard-container p {
+  line-height: 1.6;
+}
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+
+  margin-bottom: 24px;
+  padding: 26px;
+
+  border-radius: 16px;
+  border: 1px solid #e9ecef;
+
+  background: #ffffff;
+
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+}
+
+.dashboard-header-content {
+  flex: 1 1 400px;
+  min-width: 0;
+}
+
+.dashboard-header-content h1 {
+  margin-bottom: 10px;
+}
+
+.dashboard-header-content h2 {
+  margin: 0 0 10px;
+  font-size: 21px;
+}
+
+.dashboard-header-content p {
+  margin: 5px 0;
+  color: #6c757d;
+}
+
+.dashboard-header-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+.dashboard-button,
+.logout-button,
+.secondary-button,
+.status-action-button {
+  min-height: 42px;
+
+  padding: 10px 16px;
+
+  border: none;
+  border-radius: 10px;
+
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    opacity 0.15s ease;
+}
+
+.dashboard-button {
+  background: #0d6efd;
+  color: #ffffff;
+}
+
+.dashboard-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 14px rgba(13, 110, 253, 0.25);
+}
+
+.logout-button {
+  background: #dc3545;
+  color: #ffffff;
+}
+
+.logout-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 14px rgba(220, 53, 69, 0.25);
+}
+
+.secondary-button {
+  margin-top: 16px;
+  background: #ffffff;
+  color: #495057;
+  border: 1px solid #ced4da;
+}
+
+.secondary-button:hover {
+  background: #f8f9fa;
+}
+
+.dashboard-button:disabled,
+.status-action-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+  transform: none;
+  box-shadow: none;
+}
+
+.dashboard-button:focus-visible,
+.logout-button:focus-visible,
+.secondary-button:focus-visible,
+.status-action-button:focus-visible,
+.dashboard-container select:focus-visible,
+.dashboard-container input:focus-visible {
+  outline: 3px solid rgba(13, 110, 253, 0.25);
+  outline-offset: 2px;
+}
+
+/* =========================================================
+   STATISTICS
+   ========================================================= */
+
+.dashboard-stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+
+  margin-bottom: 28px;
+}
+
+.stat-card {
+  min-width: 0;
+
+  padding: 22px;
+
+  border: 1px solid #e9ecef;
+  border-radius: 14px;
+
+  background: #ffffff;
+
+  text-align: center;
+
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
+
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 7px 18px rgba(0, 0, 0, 0.08);
+}
+
+.stat-icon {
+  font-size: 30px;
+  margin-bottom: 5px;
+}
+
+.stat-card h3 {
+  margin: 8px 0 5px;
+  color: #495057;
+  font-size: 16px;
+}
+
+.stat-card h2 {
+  margin: 0;
+  font-size: 30px;
+}
+
+/* =========================================================
+   FILTERS
+   ========================================================= */
+
+.filters-card {
+  margin-bottom: 20px;
+  padding: 22px;
+
+  border: 1px solid #e9ecef;
+  border-radius: 14px;
+
+  background: #ffffff;
+
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
+}
+
+.filters-card h3 {
+  margin-bottom: 18px;
+}
+
+.filter-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.filter-item {
+  min-width: 0;
+}
+
+.filter-item label {
+  display: block;
+  margin-bottom: 7px;
+
+  font-size: 14px;
+  color: #495057;
+}
+
+.filter-item select {
+  width: 100%;
+  min-height: 43px;
+
+  padding: 10px 12px;
+
+  border: 1px solid #ced4da;
+  border-radius: 9px;
+
+  background: #ffffff;
+  color: #212529;
+
+  font-size: 15px;
+}
+
+/* =========================================================
+   ACTIVE FILTERS
+   ========================================================= */
+
+.active-filters {
+  margin-bottom: 20px;
+  padding: 17px;
+
+  border: 1px solid #dee2e6;
+  border-radius: 12px;
+
+  background: #f8f9fa;
+}
+
+.active-filters p {
+  margin: 7px 0;
+}
+
+/* =========================================================
+   REPORT CARDS
+   ========================================================= */
+
+.reports-list {
+  width: 100%;
+}
+
+.report-card {
+  margin-bottom: 20px;
+  padding: 22px;
+
+  border: 1px solid #e9ecef;
+  border-radius: 14px;
+
+  background: #ffffff;
+
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
+
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.report-card:hover {
+  box-shadow: 0 7px 20px rgba(0, 0, 0, 0.08);
+}
+
+.report-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  gap: 14px;
+  flex-wrap: wrap;
+
+  margin-bottom: 15px;
+}
+
+.report-header h3 {
+  flex: 1 1 250px;
+  margin: 0;
+  font-size: 20px;
+}
+
+.report-details p {
+  margin: 8px 0;
+}
+
+/* =========================================================
+   STATUS BADGE
+   ========================================================= */
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: fit-content;
+  min-height: 30px;
+
+  padding: 5px 11px;
+
+  border-radius: 999px;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  white-space: nowrap;
+}
+
+/* =========================================================
+   REPORT IMAGE
+   ========================================================= */
+
+.report-image {
+  display: block;
+
+  width: 100%;
+  max-width: 520px;
+  max-height: 340px;
+
+  margin: 14px 0 18px;
+
+  border: 1px solid #e9ecef;
+  border-radius: 12px;
+
+  object-fit: cover;
+}
+
+.report-card img {
+  max-width: 100%;
+}
+
+/* =========================================================
+   STATUS ACTIONS
+   ========================================================= */
+
+.status-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+
+  margin-top: 18px;
+}
+
+.status-action-button {
+  border: 1px solid #ced4da;
+  background: #ffffff;
+}
+
+.status-action-button:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+.progress-button {
+  color: #084298;
+}
+
+.resolve-button {
+  color: #0f5132;
+}
+
+/* =========================================================
+   RESOLUTION UPLOAD
+   ========================================================= */
+
+.resolution-upload {
+  margin-top: 22px;
+  padding: 20px;
+
+  border: 1px solid #dee2e6;
+  border-radius: 12px;
+
+  background: #f8fafc;
+}
+
+.resolution-upload h3 {
+  margin-bottom: 8px;
+}
+
+.file-input-group {
+  margin-bottom: 16px;
+}
+
+.file-input-group label {
+  display: block;
+  margin-bottom: 7px;
+}
+
+.dashboard-container input[type="file"] {
+  width: 100%;
+
+  padding: 10px;
+
+  border: 1px dashed #adb5bd;
+  border-radius: 9px;
+
+  background: #ffffff;
+
+  font-family: inherit;
+}
+
+.selected-file {
+  margin: 7px 0;
+
+  padding: 8px 10px;
+
+  border-radius: 7px;
+
+  background: #e9f2ff;
+  color: #084298;
+
+  font-size: 14px;
+}
+
+/* =========================================================
+   RESOLUTION PROOF
+   ========================================================= */
+
+.resolution-proof {
+  margin-top: 22px;
+  padding: 20px;
+
+  border: 1px solid #b7dfc8;
+  border-radius: 12px;
+
+  background: #f8fff9;
+}
+
+.resolution-proof h3 {
+  color: #0f5132;
+}
+
+.proof-section {
+  margin-top: 16px;
+}
+
+.proof-image {
+  display: block;
+
+  width: 100%;
+  max-width: 520px;
+  max-height: 340px;
+
+  border-radius: 10px;
+
+  object-fit: cover;
+}
+
+.proof-video {
+  display: block;
+
+  width: 100%;
+  max-width: 600px;
+  max-height: 360px;
+
+  border-radius: 10px;
+
+  background: #000000;
+}
+
+/* =========================================================
+   LOADING / ERROR / EMPTY
+   ========================================================= */
+
+.loading-message,
+.error-message,
+.empty-message {
+  padding: 18px;
+
+  border-radius: 12px;
+
+  background: #ffffff;
+  border: 1px solid #e9ecef;
+}
+
+.error-message {
+  margin-bottom: 20px;
+
+  color: #842029;
+
+  background: #f8d7da;
+  border-color: #f1aeb5;
+}
+
+.empty-message {
+  text-align: center;
+  color: #495057;
+}
+
+/* =========================================================
+   GENERAL INPUT SUPPORT
+   ========================================================= */
+
+.dashboard-container input,
+.dashboard-container select,
+.dashboard-container textarea {
+  font-family: inherit;
+}
+
+.dashboard-container a {
+  color: #0d6efd;
+  text-decoration: none;
+}
+
+.dashboard-container a:hover {
+  text-decoration: underline;
+}
+
+/* =========================================================
+   TABLE SUPPORT
+   ========================================================= */
+
+.dashboard-container table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.dashboard-container th,
+.dashboard-container td {
+  padding: 10px;
+  border-bottom: 1px solid #e9ecef;
+  text-align: left;
+}
+
+.dashboard-container .table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+/* =========================================================
+   RESPONSIVE — TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  .dashboard-container {
+    padding: 18px;
+  }
+
+  .dashboard-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .filter-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .dashboard-header {
+    padding: 21px;
+  }
+
+}
+
+/* =========================================================
+   RESPONSIVE — MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+  .dashboard-container {
+    padding: 12px;
+  }
+
+  .dashboard-container h1 {
+    font-size: 26px;
+  }
+
+  .dashboard-container h2 {
+    font-size: 21px;
+  }
+
+  .dashboard-container h3 {
+    font-size: 17px;
+  }
+
+  .dashboard-header {
+    align-items: stretch;
+    padding: 18px;
+    border-radius: 12px;
+  }
+
+  .dashboard-header-content {
+    flex-basis: 100%;
+  }
+
+  .dashboard-header-actions {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-header-actions button {
+    width: 100%;
+  }
+
+  .dashboard-stats {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .stat-card {
+    padding: 18px;
+  }
+
+  .filter-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .filters-card,
+  .report-card {
+    padding: 17px;
+    border-radius: 12px;
+  }
+
+  .dashboard-button,
+  .logout-button,
+  .secondary-button,
+  .status-action-button {
+    width: 100%;
+    min-height: 44px;
+  }
+
+  .status-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .report-header {
+    align-items: stretch;
+  }
+
+  .report-header .status-badge {
+    align-self: flex-start;
+  }
+
+  .report-image,
+  .proof-image {
+    max-height: 280px;
+  }
+
+  .proof-video {
+    max-height: 280px;
+  }
+
+}
+
+/* =========================================================
+   RESPONSIVE — SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 400px) {
+
+  .dashboard-container {
+    padding: 9px;
+  }
+
+  .dashboard-container h1 {
+    font-size: 23px;
+  }
+
+  .dashboard-container h2 {
+    font-size: 19px;
+  }
+
+  .dashboard-header,
+  .filters-card,
+  .report-card {
+    padding: 14px;
+  }
+
+  .stat-card {
+    padding: 15px;
+  }
+
+}
